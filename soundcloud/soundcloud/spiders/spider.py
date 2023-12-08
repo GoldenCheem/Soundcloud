@@ -37,13 +37,15 @@ class SpiderSpider(scrapy.Spider):
         for track in driver.find_elements(By.CSS_SELECTOR, 'li.searchList__item.sc-mt-3x'):
             # Get track name
             try:
-                name = track.find_element(By.CSS_SELECTOR, 'a.sc-link-primary.soundTitle__title.sc-link-dark.sc-text-h4').text.strip()
+                name = track.find_element(By.CSS_SELECTOR,
+                                          'a.sc-link-primary.soundTitle__title.sc-link-dark.sc-text-h4').text.strip()
             except:
                 name = 'None'
             
             # Get poster name
             try:
-                poster = track.find_element(By.CSS_SELECTOR, '.soundTitle__usernameText').text.strip()
+                poster = track.find_element(By.CSS_SELECTOR,
+                                            '.soundTitle__usernameText').text.strip()
             except:
                 poster = 'None'
 
@@ -62,19 +64,25 @@ class SpiderSpider(scrapy.Spider):
 
             # Get number of likes
             try:
-                likes = track.find_element(By.CSS_SELECTOR, '.sc-button-like.sc-button-secondary.sc-button.sc-button-small.sc-button-responsive').text.strip()
+                likes = track.find_element(By.CSS_SELECTOR, 
+                                           '.sc-button-like.sc-button-secondary.sc-button.sc-button-small.sc-button-responsive'
+                                          ).text.strip()
             except:
                 likes = 0
             
             # Get number of reposts
             try:
-                reposts = track.find_element(By.CSS_SELECTOR, '.sc-button-repost.sc-button-secondary.sc-button.sc-button-small.sc-button-responsive').text.strip()
+                reposts = track.find_element(By.CSS_SELECTOR,
+                                             '.sc-button-repost.sc-button-secondary.sc-button.sc-button-small.sc-button-responsive'
+                                            ).text.strip()
             except:
                 reposts = 0
 
             # Get posted time
             try:
-                posted_time = track.find_element(By.CSS_SELECTOR, '.relativeTime.sc-text-secondary.sc-text-captions').get_attribute('title')
+                posted_time = track.find_element(By.CSS_SELECTOR,
+                                                 '.relativeTime.sc-text-secondary.sc-text-captions'
+                                                ).get_attribute('title')
             except:
                 posted_time = 'None'
             
